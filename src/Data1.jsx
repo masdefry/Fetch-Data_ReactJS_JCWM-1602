@@ -13,6 +13,7 @@ export default class Data1 extends React.Component{
         Axios.get(linkAPI)
         .then((response) => {
             this.setState({data: response.data.results})
+            console.log(response.data.results)
         })
         .catch((error) => {
             console.log(error)
