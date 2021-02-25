@@ -52,7 +52,7 @@ export default class LifeCycleMethod extends React.Component{
                 {
                     this.state.data.map((value, index) => {
                         return(
-                            <div key={index}>
+                            <div key={index} className='border border-primary'>
                                 <h1>
                                     {value.text}
                                 </h1>

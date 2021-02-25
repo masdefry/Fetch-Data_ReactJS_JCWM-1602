@@ -4,6 +4,7 @@ import Navbar from './Components/Navbar'
 import Data1 from './Data1'
 import Data2  from './Data2'
 import LifeCycleMethod from './LifeCycleMethod'
+import Exercise from './Exercise'
 
 export default class App extends React.Component{
   render(){
@@ -19,6 +20,7 @@ export default class App extends React.Component{
           <Route path='/data-1' component={Data1} />
           <Route path='/data-2' component={Data2} />
           <Route path='/lifecyclemethod' component={LifeCycleMethod} />
+          <Route path='/exercise' component={Exercise} />
         </Switch>
       </BrowserRouter>
     )
