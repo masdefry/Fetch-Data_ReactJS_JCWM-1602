@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Navbar from './Components/Navbar'
 import Data1 from './Data1'
 import Data2  from './Data2'
+import LifeCycleMethod from './LifeCycleMethod'
 
 export default class App extends React.Component{
   render(){
@@ -17,6 +18,7 @@ export default class App extends React.Component{
           </Route>
           <Route path='/data-1' component={Data1} />
           <Route path='/data-2' component={Data2} />
+          <Route path='/lifecyclemethod' component={LifeCycleMethod} />
         </Switch>
       </BrowserRouter>
     )

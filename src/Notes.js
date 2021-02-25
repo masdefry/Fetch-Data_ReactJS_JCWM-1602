@@ -8,3 +8,8 @@
 //      - Async : Dia menjalankan baris per-baris secara berurutan TAPI
 //                Dia nggak nunggu baris sebelumnya selesai
 //        Ex. Axios ---> Dia menghasilkan promise yg belum diketahui responsenya apa
+
+// Lifecycle Method
+//      - Fase Mounting : Fase ketika component pertama kali di render oleh DOM. componentDidMount()
+//      - Fase Updating : Fase ketika suatu component di render ulang. componentDidUpdate()
+//      - Fase Unmounting : Fase ketika component bakalan dihapus dari layar. componentWillUnmount()
