@@ -10,6 +10,7 @@ export default class Navbar extends React.Component{
                 <Link to='/data-2' className="nav-link active">Fetch Data 2</Link>
                 <Link to='/lifecyclemethod' className="nav-link active">Lifecycle Method</Link>
                 <Link to='/exercise' className="nav-link active">Exercise</Link>
+                <Link to='/fake-api' className="nav-link active">Fetch Data Fake API</Link>
             </nav>
         )
     }

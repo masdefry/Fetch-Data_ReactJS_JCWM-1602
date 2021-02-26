@@ -5,6 +5,7 @@ import Data1 from './Data1'
 import Data2  from './Data2'
 import LifeCycleMethod from './LifeCycleMethod'
 import Exercise from './Exercise'
+import FetchFakeAPI from './FetchFakeAPI'
 
 export default class App extends React.Component{
   render(){
@@ -21,6 +22,7 @@ export default class App extends React.Component{
           <Route path='/data-2' component={Data2} />
           <Route path='/lifecyclemethod' component={LifeCycleMethod} />
           <Route path='/exercise' component={Exercise} />
+          <Route path='/fake-api' component={FetchFakeAPI} />
         </Switch>
       </BrowserRouter>
     )

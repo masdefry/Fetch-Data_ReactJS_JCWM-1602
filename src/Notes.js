@@ -13,3 +13,10 @@
 //      - Fase Mounting : Fase ketika component pertama kali di render oleh DOM. componentDidMount()
 //      - Fase Updating : Fase ketika suatu component di render ulang. componentDidUpdate()
 //      - Fase Unmounting : Fase ketika component bakalan dihapus dari layar. componentWillUnmount()
+
+// JSON SERVER
+// Step1. npm install -g json-server
+// Step2. json-server --version
+// Step3. Create Folder : nama_bebas
+// Step4. Create File   : nama_bebas.json
+// Step5. Running       : json-server --watch nama_bebas.json --port 2000
