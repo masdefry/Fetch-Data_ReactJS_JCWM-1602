@@ -55,6 +55,40 @@ export default class FetchFakeAPI extends React.Component{
         }
     }
 
+    onUpdateData = () => {
+        // 1. Ambil value terbaru dari user
+        let usernameEdited = this.refs.usernameEdit.value
+        let emailEdited = this.refs.emailEdit.value
+        let passwordEdited = this.refs.passwordEdit.value
+
+        console.log(usernameEdited)
+
+        let dataToSend = {
+            username: usernameEdited,
+            email: emailEdited,
+            password: passwordEdited
+        }
+
+        // 2. Kita validasi
+        if(usernameEdited && emailEdited && passwordEdited){
+            // 3. Kita kirim data terbaru ke API
+            Axios.patch(linkAPI + '/' + this.state.idSelected, dataToSend)
+            .then((res) => {
+                if(res.status === 200){
+                    alert('Data Berhasil Diubah')
+                    this.setState({idSelected: null})
+                    this.onGetData() // Karena terjadi perubahan di state, maka tabel bakalan re-render dan datanya berubah
+                }
+            })
+            .catch((err) => {
+
+            })
+        }else{
+            alert('Masukan Seluruh Data!')
+        }
+
+    }
+
     // mapDataUsers = () => {
         
     // }
@@ -98,18 +132,18 @@ export default class FetchFakeAPI extends React.Component{
                                     <tr key={index}>
                                         <th scope="row">{value.id}</th>
                                         <td>
-                                            <input type='text' value={value.username} />
+                                            <input type='text' ref='usernameEdit' defaultValue={value.username} />
                                         </td>
                                         <td>
-                                            <input type='text' value={value.email} />
+                                            <input type='text' ref='emailEdit' defaultValue={value.email} />
                                         </td>
                                         <td>
-                                            <input type='text' value={value.password} />
+                                            <input type='text' ref='passwordEdit' defaultValue={value.password} />
                                         </td>
                                         <td>
                                             <center>
-                                                <input type='button' value='Save' className='btn btn-success' />
-                                                <input type='button' value='Cancel' className='btn btn-danger mx-3' />
+                                                <input type='button' value='Save' className='btn btn-success' onClick={this.onUpdateData} />
+                                                <input type='button' value='Cancel' className='btn btn-danger mx-3' onClick={() => this.setState({idSelected: null})} />
                                             </center>
                                         </td>
                                     </tr>
