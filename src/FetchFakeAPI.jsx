@@ -7,7 +7,8 @@ export default class FetchFakeAPI extends React.Component{
 
     state = {
         dataUsers: null,
-        showForm: true
+        showForm: false,
+        idSelected: null
     }
 
     componentDidMount(){
@@ -54,18 +55,9 @@ export default class FetchFakeAPI extends React.Component{
         }
     }
 
-    mapDataUsers = () => {
-        return this.state.dataUsers.map((value, index) => {
-            return(
-                <tr key={index}>
-                    <th scope="row">{value.id}</th>
-                    <td>{value.username}</td>
-                    <td>{value.email}</td>
-                    <td>{value.password}</td>
-                </tr>
-            )
-        })
-    }
+    // mapDataUsers = () => {
+        
+    // }
 
     render(){
         if(this.state.dataUsers === null){
@@ -78,9 +70,16 @@ export default class FetchFakeAPI extends React.Component{
 
         return(
             <div className='container mt-5'>
-                <h1>
-                    Fetch Data Fake API
-                </h1>
+                <div className='d-flex justify-content-between'>
+                    <div>
+                        <h1>
+                            Fetch Data Fake API
+                        </h1>
+                    </div>
+                    <div>
+                        <input type='button' value='Tambah Data' className='btn btn-primary' onClick={() => this.setState({showForm: true})} />
+                    </div>
+                </div>
                 <table className="table table-hover">
                     <thead>
                         <tr>
@@ -88,11 +87,50 @@ export default class FetchFakeAPI extends React.Component{
                         <th scope="col">Username</th>
                         <th scope="col">Email</th>
                         <th scope="col">Password</th>
+                        <th scope="col"><center>Action</center></th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody className='border'>
                     {
-                        this.mapDataUsers()
+                        this.state.dataUsers.map((value, index) => {
+                            if(this.state.idSelected === value.id){
+                                return(
+                                    <tr key={index}>
+                                        <th scope="row">{value.id}</th>
+                                        <td>
+                                            <input type='text' value={value.username} />
+                                        </td>
+                                        <td>
+                                            <input type='text' value={value.email} />
+                                        </td>
+                                        <td>
+                                            <input type='text' value={value.password} />
+                                        </td>
+                                        <td>
+                                            <center>
+                                                <input type='button' value='Save' className='btn btn-success' />
+                                                <input type='button' value='Cancel' className='btn btn-danger mx-3' />
+                                            </center>
+                                        </td>
+                                    </tr>
+                                )
+                            }else{
+                                return(
+                                    <tr key={index}>
+                                        <th scope="row">{value.id}</th>
+                                        <td>{value.username}</td>
+                                        <td>{value.email}</td>
+                                        <td>{value.password}</td>
+                                        <td>
+                                            <center>
+                                                <input type='button' value='Edit' className='btn btn-warning' onClick={() => this.setState({idSelected: value.id})} />
+                                                <input type='button' value='Delete' className='btn btn-danger mx-3' />
+                                            </center>
+                                        </td>
+                                    </tr>
+                                )
+                            }
+                        })
                     }
                     </tbody>
                 </table>
@@ -121,6 +159,8 @@ export default class FetchFakeAPI extends React.Component{
                             Form Tidak Tampil
                         </div>
                 }
+
+                <br /><br /><br /><br /><br />
             </div>
         )
     }
