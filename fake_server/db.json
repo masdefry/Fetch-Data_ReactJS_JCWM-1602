@@ -1,18 +1,6 @@
 {
   "users": [
     {
-      "id": 1,
-      "username": "ryandefryan20",
-      "password": "123123",
-      "email": "ryan.fandy@gmail.com"
-    },
-    {
-      "id": 2,
-      "username": "syahdabintarum95",
-      "password": "abcabc",
-      "email": "syahdabintarum95@yahoo.com"
-    },
-    {
       "id": 3,
       "username": "bagoes16",
       "password": "123abc",

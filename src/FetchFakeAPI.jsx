@@ -89,6 +89,23 @@ export default class FetchFakeAPI extends React.Component{
 
     }
 
+    onDeleteData = (idToDel) => {
+        let resulConfirm = window.confirm('Anda Yakin?')
+
+        if(resulConfirm === true){
+            Axios.delete(linkAPI + '/' + idToDel)
+            .then((res) => {
+                if(res.status === 200){
+                    alert('Data Berhasil Dihapus')
+                    this.onGetData()
+                }
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+        }
+    }
+
     // mapDataUsers = () => {
         
     // }
@@ -158,7 +175,7 @@ export default class FetchFakeAPI extends React.Component{
                                         <td>
                                             <center>
                                                 <input type='button' value='Edit' className='btn btn-warning' onClick={() => this.setState({idSelected: value.id})} />
-                                                <input type='button' value='Delete' className='btn btn-danger mx-3' />
+                                                <input type='button' value='Delete' className='btn btn-danger mx-3' onClick={() => this.onDeleteData(value.id)} />
                                             </center>
                                         </td>
                                     </tr>
